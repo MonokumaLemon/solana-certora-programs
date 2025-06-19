@@ -4,8 +4,11 @@ This repository contains Solana smart contract programs that can be formally ver
 
 The motivation behind this project is to explore the application of [SCAR (Smart Contract Abstract Representation framework)](https://gitlab.kit.edu/jonas.schiffl/Scar) to Solana programs.
 
+<<<<<<< HEAD
 ---Add commentMore actions
 
+=======
+>>>>>>> 26faf08 (Correct wording and formatting in README)
 **Below is the introduction from the official Certora Solana Examples repository:**
 
 ## Prerequisites
