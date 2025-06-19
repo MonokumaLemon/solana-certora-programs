@@ -1,14 +1,11 @@
-# SolanaExamples
+# Solana-Certora-Programs
 
 This repository contains Solana smart contract programs that can be formally verified using the Certora Prover. It is an extended version of the official [certora/solanaExamples](https://github.com/Certora/solanaExamples), with additional programs, simplified inline comments, and the removal of `.just` files for personal preference. Special thanks to the Certora team for providing the tools, examples, and inspiration.
 
 The motivation behind this project is to explore the application of [SCAR (Smart Contract Abstract Representation framework)](https://gitlab.kit.edu/jonas.schiffl/Scar) to Solana programs.
 
-<<<<<<< HEAD
----Add commentMore actions
+---
 
-=======
->>>>>>> 26faf08 (Correct wording and formatting in README)
 **Below is the introduction from the official Certora Solana Examples repository:**
 
 ## Prerequisites
