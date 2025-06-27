@@ -54,6 +54,8 @@ impl Vault {
 
     pub fn slash(&mut self, tkn: u64) {
         self.del_token(tkn);
+        // Possible solution to ensure shares_total is never greater than token_total after slash.
+        // self.burn_shares(tkn);
     }
 
     fn mint_shares(&mut self, shares_for_user: u64) {
