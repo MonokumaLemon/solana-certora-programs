@@ -15,7 +15,7 @@ use solana_program::msg;
 #[cfg(feature = "certora")]
 use cvlr::clog as msg;
 
-declare_id!("2gGKhQqfdHxpK5wo66KJ8aY4XvjxjUattmzoA1u85Vyk");
+declare_id!("FNuYKdEuhwGFp23UuQk9P4Hh9VktotebvrR6Xnmd2m4S");
 
 #[cfg(not(feature = "no-entrypoint"))]
 use solana_program::entrypoint;
