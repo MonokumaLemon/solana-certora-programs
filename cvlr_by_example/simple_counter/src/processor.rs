@@ -38,7 +38,7 @@ pub fn process_start(
     if pda_account.data_is_empty() {
         msg!("PDA account is empty. Creating...");
 
-        // Calculate the amount of space (in bytes) for the GreetingAccount struct
+        // Calculate the amount of space (in bytes) for the SimpleCounter struct
         let space = std::mem::size_of::<SimpleCounter>();
         // Calculate the minimum lamports required to make the account rent-exempt
         let rent = Rent::get()?.minimum_balance(space);
@@ -62,7 +62,6 @@ pub fn process_start(
         // Serialize and write the counter into the PDA's data space
         simple_counter.serialize(&mut &mut pda_account.data.borrow_mut()[..])?;
     }
-
 
     Ok(())
 }
