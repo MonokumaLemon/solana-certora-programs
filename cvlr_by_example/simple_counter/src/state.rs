@@ -5,13 +5,13 @@ use borsh::{BorshDeserialize, BorshSerialize};
 
 #[derive(BorshSerialize, BorshDeserialize, Debug)]
 
-pub struct GreetingAccount {
-    pub counter: u32,
+pub struct SimpleCounter {
+    pub ctr: u32,
 }
 
-impl GreetingAccount {
+impl SimpleCounter {
     /// Increments the counter by 1 
     pub fn increment(&mut self) {
-        self.counter += 1;
+        self.ctr += 1;
     }
 }

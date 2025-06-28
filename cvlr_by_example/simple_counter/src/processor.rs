@@ -7,7 +7,7 @@ use solana_program::{
     system_instruction,
     sysvar::{rent::Rent, Sysvar},
 };
-use crate::state::GreetingAccount;
+use crate::state::SimpleCounter;
 
 
 pub fn process_start(
@@ -39,7 +39,7 @@ pub fn process_start(
         msg!("PDA account is empty. Creating...");
 
         // Calculate the amount of space (in bytes) for the GreetingAccount struct
-        let space = std::mem::size_of::<GreetingAccount>();
+        let space = std::mem::size_of::<SimpleCounter>();
         // Calculate the minimum lamports required to make the account rent-exempt
         let rent = Rent::get()?.minimum_balance(space);
         // Create a new PDA-owned account with the required space and rent
@@ -57,10 +57,10 @@ pub fn process_start(
             &[&[b"simple_counter", user.key.as_ref(), &[bump]]],
         )?;
         
-        let greeting_account = GreetingAccount { counter: 0 };
+        let simple_counter = SimpleCounter { ctr: 0 };
 
         // Serialize and write the counter into the PDA's data space
-        greeting_account.serialize(&mut &mut pda_account.data.borrow_mut()[..])?;
+        simple_counter.serialize(&mut &mut pda_account.data.borrow_mut()[..])?;
     }
 
 
