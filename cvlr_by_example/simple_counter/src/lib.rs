@@ -15,6 +15,7 @@ use solana_program::msg;
 #[cfg(feature = "certora")]
 use cvlr::clog as msg;
 
+//Global counter: declare_id!("5Q7SWnUeRtPskf2H51JQVvgDFSKMSbzHMLD9hT2M22zn");
 declare_id!("FNuYKdEuhwGFp23UuQk9P4Hh9VktotebvrR6Xnmd2m4S");
 
 #[cfg(not(feature = "no-entrypoint"))]

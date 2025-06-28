@@ -10,6 +10,8 @@ use solana_program::{
 use crate::state::SimpleCounter;
 
 
+
+// Remove user.key.as_ref() if you want global counter
 pub fn process_start(
     _program_id: &Pubkey,
     accounts: &[AccountInfo],
@@ -25,7 +27,7 @@ pub fn process_start(
     // Derive the expected PDA address using the seeds and program ID
     let (expected_pda, bump) = Pubkey::find_program_address(
         &[b"simple_counter", user.key.as_ref()],
-        _program_id,,
+        _program_id,
     );
 
     if expected_pda != *pda_account.key {
