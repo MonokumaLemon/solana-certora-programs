@@ -62,6 +62,10 @@ pub fn process_start(
         // Serialize and write the counter into the PDA's data space
         simple_counter.serialize(&mut &mut pda_account.data.borrow_mut()[..])?;
     }
-
+    // Try to read and increment the counter in the PDA account
+    let mut  simple_counter = SimpleCounter::try_from_slice(&pda_account.data.borrow())?;
+    simple_counter.increment();
+    simple_counter.serialize(&mut &mut pda_account.data.borrow_mut()[..])?;
+    msg!("Greeted {} time(s)", simple_counter.ctr);
     Ok(())
 }
