@@ -1,3 +1,4 @@
+// @ts-nocheck
 // This is a client to interact with the simple counter program.
 // Feel free to test it on Solana Playground.
 // NOTE: If you're switching from a simple counter to global counter,
