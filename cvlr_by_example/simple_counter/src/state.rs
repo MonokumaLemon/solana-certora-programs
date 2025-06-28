@@ -1,7 +1,4 @@
 use borsh::{BorshDeserialize, BorshSerialize};
-use bytemuck::{Pod, Zeroable};
-use solana_program::pubkey::Pubkey;
-use spl_pod::primitives::PodU64;
 
 // Ensures the struct has a predictable memory layout for zero-copy.
 #[repr(C)]

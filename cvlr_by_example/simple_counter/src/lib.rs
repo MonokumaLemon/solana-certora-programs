@@ -28,6 +28,6 @@ pub fn process_instruction(
     accounts: &[AccountInfo],
     instruction_data: &[u8],
 ) -> ProgramResult {
-    processor::process_start(accounts)
+    processor::process_start(_program_id, accounts)?;
     Ok(())
 }

@@ -11,6 +11,7 @@ use crate::state::GreetingAccount;
 
 
 pub fn process_start(
+    _program_id: &Pubkey,
     accounts: &[AccountInfo],
 ) -> Result<(), ProgramError> {
 
@@ -24,7 +25,7 @@ pub fn process_start(
     // Derive the expected PDA address using the seeds and program ID
     let (expected_pda, bump) = Pubkey::find_program_address(
         &[b"simple_counter", user.key.as_ref()],
-        program_id,
+        _program_id,,
     );
 
     if expected_pda != *pda_account.key {
@@ -48,7 +49,7 @@ pub fn process_start(
                 pda_account.key,
                 rent,
                 space as u64,
-                program_id,
+                _program_id,
             ),
             // Signer accounts
             &[user.clone(), pda_account.clone(), system_program.clone()],
