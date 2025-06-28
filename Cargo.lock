@@ -1691,6 +1691,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "74233d3b3b2f6d4b006dc19dee745e73e2a6bfb6f93607cd3b02bd5b00797d7c"
 
 [[package]]
+name = "simple_counter"
+version = "0.1.0"
+dependencies = [
+ "bytemuck",
+ "cvlr",
+ "cvlr-solana",
+ "solana-program",
+ "spl-pod",
+ "spl-token",
+ "spl-token-2022",
+]
+
+[[package]]
 name = "siphasher"
 version = "0.3.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
