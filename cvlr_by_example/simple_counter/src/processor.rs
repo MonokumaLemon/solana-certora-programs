@@ -8,6 +8,8 @@ use solana_program::{
     sysvar::{rent::Rent, Sysvar},
 };
 use crate::state::SimpleCounter;
+use borsh::BorshSerialize;
+use borsh::BorshDeserialize;
 
 
 

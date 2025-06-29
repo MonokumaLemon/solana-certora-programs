@@ -17,3 +17,5 @@ spl-token = { version = "4", features = ["no-entrypoint"] }
 spl-token-2022 = { version = "3", features = ["no-entrypoint"] }
 bytemuck = "1.7.2"
 spl-pod = "0.2.5"
+borsh = "1.5.7"
+borsh-derive = "1.5.7"

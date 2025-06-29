@@ -20,6 +20,9 @@ spl-pod = { workspace = true }
 cvlr = { workspace = true }
 cvlr-solana = { workspace = true }
 
+borsh = { workspace = true }
+borsh-derive = { workspace = true }
+
 [package.metadata.certora]
 sources = [
     "Cargo.toml",
