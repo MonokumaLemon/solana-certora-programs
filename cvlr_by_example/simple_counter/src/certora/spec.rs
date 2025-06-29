@@ -10,7 +10,7 @@ struct FvSimpleCounter {
 impl From<&SimpleCounter> for FvSimpleCounter {
     fn from(counter: &SimpleCounter) -> FvSimpleCounter {
         let ctr: u64 = counter.ctr.into();
-        FvVault {
+        FvSimpleCounter {
             ctr: ctr.into(),
         }
     }
