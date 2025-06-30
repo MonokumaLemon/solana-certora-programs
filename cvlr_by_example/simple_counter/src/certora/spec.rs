@@ -2,6 +2,7 @@ use crate::{processor::*, state::SimpleCounter};
 use cvlr::{mathint::NativeInt, prelude::*};
 use cvlr_solana::cvlr_deserialize_nondet_accounts;
 use solana_program::account_info::{next_account_info, AccountInfo};
+use borsh::BorshDeserialize;
 
 struct FvSimpleCounter {
     ctr: NativeInt,
@@ -18,9 +19,10 @@ impl From<&SimpleCounter> for FvSimpleCounter {
 
 impl<'a> From<&AccountInfo<'a>> for FvSimpleCounter {
     fn from(acc_info: &AccountInfo) -> FvSimpleCounter {
-        let mut data = acc_info.data.borrow_mut();
-        let counter: &FvSimpleCounter = bytemuck::from_bytes_mut(&mut data[..]);
-        FvSimpleCounter::from(counter)
+        let data = acc_info.data.borrow();
+        let counter = SimpleCounter::try_from_slice(&data)
+            .expect("Failed to deserialize SimpleCounter");
+        FvSimpleCounter::from(&counter)
     }
 }
 
@@ -30,7 +32,7 @@ pub fn rule_correct_increment() {
     let account_info_iter = &mut account_infos.iter();
     let simple_counter: &AccountInfo = next_account_info(account_info_iter).unwrap();
     let fv_counter_pre: FvSimpleCounter = simple_counter.into();
-    cvlr_assume!(fv_counter_pre.ctr < u32::MAX);
+    cvlr_assume!(fv_counter_pre.ctr < u32::MAX.into());
     let program_id = &crate::id();
     process_start(program_id, &account_infos).unwrap();
     let fv_counter_post: FvSimpleCounter = simple_counter.into();
