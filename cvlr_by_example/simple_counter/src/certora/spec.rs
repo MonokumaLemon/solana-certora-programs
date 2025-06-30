@@ -20,8 +20,7 @@ impl From<&SimpleCounter> for FvSimpleCounter {
 impl<'a> From<&AccountInfo<'a>> for FvSimpleCounter {
     fn from(acc_info: &AccountInfo) -> FvSimpleCounter {
         let data = acc_info.data.borrow();
-        let counter = SimpleCounter::try_from_slice(&data)
-            .expect("Failed to deserialize SimpleCounter");
+        let counter = SimpleCounter::try_from_slice(&data).unwrap();
         FvSimpleCounter::from(&counter)
     }
 }
@@ -36,4 +35,5 @@ pub fn rule_correct_increment() {
     let program_id = &crate::id();
     process_start(program_id, &account_infos).unwrap();
     let fv_counter_post: FvSimpleCounter = simple_counter.into();
+    cvlr_assert!(fv_counter_pre.ctr < fv_counter_post.ctr);
 }
