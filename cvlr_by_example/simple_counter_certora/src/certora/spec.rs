@@ -37,3 +37,11 @@ pub fn rule_correct_increment() {
     let fv_counter_post: FvSimpleCounter = simple_counter.into();
     cvlr_assert!(fv_counter_pre.ctr > fv_counter_post.ctr);
 }
+
+#[rule]
+pub fn rule_testBool() {
+    let a = true;
+    cvlr_assume!(a);
+    let a = true;
+    cvlr_assert!(a);
+}
