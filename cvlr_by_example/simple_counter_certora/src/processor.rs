@@ -17,5 +17,6 @@ pub fn process_start(
     // Interpret the borrowed bytes as a mutable reference to a Vault struct (zero-copy)
     let simplecounter: &mut SimpleCounter = bytemuck::from_bytes_mut(&mut data[..]);
     simplecounter.increment();
+    simplecounter.set_false();
     Ok(())
 }
