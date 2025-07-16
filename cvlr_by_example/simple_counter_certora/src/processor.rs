@@ -18,5 +18,6 @@ pub fn process_start(
     let simplecounter: &mut SimpleCounter = bytemuck::from_bytes_mut(&mut data[..]);
     simplecounter.increment();
     simplecounter.set_false();
+    simplecounter.set();
     Ok(())
 }
