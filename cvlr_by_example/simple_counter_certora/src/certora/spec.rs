@@ -1,4 +1,4 @@
-use crate::{processor::*, state::SimpleCounter};
+use crate::{processor::*, state::SimpleCounter, foreach_assert};
 use cvlr::{mathint::NativeInt, prelude::*};
 use cvlr_solana::cvlr_deserialize_nondet_accounts;
 use solana_program::account_info::{next_account_info, AccountInfo};
